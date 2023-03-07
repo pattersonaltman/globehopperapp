@@ -25,4 +25,5 @@ mycursor.execute("INSERT INTO City (CityId, Name, CountryId, Capital, FirstLandm
 mycursor.execute("INSERT INTO City (CityId, Name, CountryId, Capital, FirstLandmark, SecondLandmark, ThirdLandmark) VALUES (2, 'Toronto', 1, 0, 'CN Tower', 'Niagara Falls', 'AGO')")
 mycursor.execute("INSERT INTO City (CityId, Name, CountryId, Capital, FirstLandmark, SecondLandmark, ThirdLandmark) VALUES (3, 'Washington', 2, 1, 'White House', 'Lincoln Memorial', 'National Air and Space Museum')")
 
+#Commit all the SQLs
 conn.myconn.commit()
