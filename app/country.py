@@ -3,6 +3,11 @@
 from flask import Flask, request, jsonify
 import services
 
+#Function to update a country by id
+def updateCountry(country_id, data):
+    services.updateCountry(country_id, data)
+    return jsonify({'message': f'Record [{country_id}] updated successfully'})
+
 #Function to create new Country
 def createCountry(data):
     services.createCountry(data)

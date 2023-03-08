@@ -10,6 +10,15 @@ app = Flask(__name__)
 # csrf = CSRFProtect()
 # csrf.init_app(app)
 
+#Delete - DELETE API
+
+#Update - PUT API
+@app.route('/countries/<int:country_id>', methods=['PUT'])
+def updateCountry(country_id):
+    print(country_id)
+    data = request.json
+    return country.updateCountry(country_id, data)
+
 #Create - POST API
 @app.route('/countries', methods=['POST'])
 def createCountry():
