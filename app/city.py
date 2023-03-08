@@ -4,6 +4,11 @@ from flask import Flask, request, jsonify
 import services
 import country
 
+#function to create a new City
+def createcityview(data):
+    services.createcityservice(data)
+    return jsonify({'message':'Data inserted successfully'})
+
 #Function to get all cities
 def getallcitiesview():
     results = services.getallcitiesservice()

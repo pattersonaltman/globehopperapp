@@ -5,6 +5,30 @@ import conn
 
     #City Services
 
+#Create a City record
+def createcityservice(data):
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Parse the Data
+    cityid = data['CityId']
+    name = data['Name']
+    countryid = data['CountryId']
+    capital = data['Capital']
+    firstlandmark = data['FirstLandMark']
+    secondlandmark = data['SecondLandMark']
+    thirdlandmark = data['ThirdLandMark']
+
+    #Execute the SQL
+    mysql = "insert into City (CityId, Name, CountryId, Capital, FirstLandMark, SecondLandMark, ThirdLandMark) values (%s, %s, %s, %s, %s, %s, %s)"
+    values = (cityid, name, countryid, capital, firstlandmark, secondlandmark, thirdlandmark)
+    mycursor.execute(mysql, values)
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
+
 #gets all records from City table using SQL
 def getallcitiesservice():
     #Open connection

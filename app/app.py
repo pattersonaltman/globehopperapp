@@ -47,7 +47,10 @@ def getallcountriesapi():
 
 
 #Create - POST API
-
+@app.route('/cities', methods=['POST'])
+def createcityapi():
+    data = request.json
+    return city.createcityview(data)
 
 #Read API
 @app.route('/cities')
