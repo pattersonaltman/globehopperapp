@@ -3,6 +3,25 @@
 from flask import Flask, request, jsonify
 import conn
 
+#Create a Country record
+def createCountry(data):
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    countryId = data['CountryId']
+    name = data['Name']
+    population = data['Population']
+    continent = data['Continent']
+    
+    #Execute the SQL
+    mysql = "INSERT INTO Country (CountryId, Name, Population, Continent) VALUES (%s, %s, %s, %s)"
+    values = (countryId, name, population, continent)
+    mycursor.execute(mysql, values)
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
 
 #gets all records from Country table using SQL
 def allCountries():
@@ -19,3 +38,4 @@ def allCountries():
     conn.myconn.close()
 
     return results
+

@@ -7,6 +7,12 @@ import country
 #Using Flash framework
 app = Flask(__name__)
 
+#Create - POST API
+@app.route('/countries', methods=['POST'])
+def createCountry():
+    data = request.json
+    return country.createCountry(data)
+
 #Read API
 @app.route('/countries')
 def getAllCountries():
@@ -19,4 +25,4 @@ def getAllCountries():
 
 #Execute on the terminal
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
