@@ -11,11 +11,13 @@ app = Flask(__name__)
 # csrf.init_app(app)
 
 #Delete - DELETE API
+@app.route('/countries/<int:country_id>', methods=['DELETE'])
+def deleteCountry(country_id):
+    return country.deleteCountry(country_id)
 
 #Update - PUT API
 @app.route('/countries/<int:country_id>', methods=['PUT'])
 def updateCountry(country_id):
-    print(country_id)
     data = request.json
     return country.updateCountry(country_id, data)
 

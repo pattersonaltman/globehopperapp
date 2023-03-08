@@ -3,6 +3,19 @@
 from flask import Flask, request, jsonify
 import conn
 
+def deleteCountry(country_id):
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Execute the SQL
+    mysql = f"delete from Country where CountryId = {country_id}"
+    mycursor.execute(mysql)
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
+
 def updateCountry(country_id, data):
     #Open connection
     conn.myconn._open_connection()

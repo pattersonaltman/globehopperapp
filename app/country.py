@@ -3,6 +3,11 @@
 from flask import Flask, request, jsonify
 import services
 
+#Function to delete a country by id
+def deleteCountry(country_id):
+    services.deleteCountry(country_id)
+    return jsonify({'message': f'Record [{country_id}] deleted successfully'})
+
 #Function to update a country by id
 def updateCountry(country_id, data):
     services.updateCountry(country_id, data)
