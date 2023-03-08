@@ -3,9 +3,12 @@
 
 from flask import Flask, request, jsonify
 import country
+from flask_wtf.csrf import CSRFProtect
 
 #Using Flash framework
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 #Create - POST API
 @app.route('/countries', methods=['POST'])
