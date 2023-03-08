@@ -4,6 +4,11 @@ from flask import Flask, request, jsonify
 import services
 import country
 
+#Function to delete a City by id
+def deletecityview(cityid):
+    services.deletecityservice(cityid)
+    return jsonify({'message':f'Record [{cityid}] deleted successfully'})
+
 #Function to update a City by id
 def updatecityview(cityid, data):
     services.updatecityservice(cityid, data)

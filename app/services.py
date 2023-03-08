@@ -5,6 +5,20 @@ import conn
 
     #City Services
 
+#Delete a City record by id
+def deletecityservice(cityid):
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Execute the SQL
+    mysql = f"delete from City where CityId = {cityid}"
+    mycursor.execute(mysql)
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
+
 #Update a City record by id
 def updatecityservice(cityid, data):
     #Open connection

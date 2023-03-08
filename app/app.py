@@ -41,7 +41,9 @@ def getallcountriesapi():
     # City APIs
 
 #Delete - DELETE API
-
+@app.route('/cities/<int:cityid>', methods=['DELETE'])
+def deletecityapi(cityid):
+    return city.deletecityview(cityid)
 
 #Update - PUT API
 @app.route('/cities/<int:cityid>', methods=['PUT'])
