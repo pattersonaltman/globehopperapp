@@ -51,8 +51,8 @@ def getallcountriesapi():
 
 #Read API
 @app.route('/cities')
-def getallcities():
-    return
+def getallcitiesapi():
+    return city.getallcitiesview()
 
 
 

@@ -3,6 +3,29 @@
 from flask import Flask, request, jsonify
 import conn
 
+    #City Services
+
+#gets all records from City table using SQL
+def getallcitiesservice():
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Execute the SQL
+    mycursor.execute("select * from City")
+    results = mycursor.fetchall()
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+    return results
+
+
+
+
+    #Country Services
+
 def deletecountryservice(country_id):
     #Open connection
     conn.myconn._open_connection()
