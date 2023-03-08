@@ -3,7 +3,7 @@
 from flask import Flask, request, jsonify
 import conn
 
-def deleteCountryService(country_id):
+def deletecountryservice(country_id):
     #Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -16,7 +16,7 @@ def deleteCountryService(country_id):
     mycursor.close()
     conn.myconn.close()
 
-def updateCountryService(country_id, data):
+def updatecountryservice(country_id, data):
     #Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -36,7 +36,7 @@ def updateCountryService(country_id, data):
     conn.myconn.close()
 
 #Create a Country record
-def createCountryService(data):
+def createcountryservice(data):
     #Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -56,7 +56,7 @@ def createCountryService(data):
     conn.myconn.close()
 
 #gets all records from Country table using SQL
-def getAllCountriesService():
+def getallcountriesservice():
     #Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()

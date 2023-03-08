@@ -10,29 +10,46 @@ app = Flask(__name__)
 # csrf = CSRFProtect()
 # csrf.init_app(app)
 
+
+    # Country APIs
+
 #Delete - DELETE API
 @app.route('/countries/<int:country_id>', methods=['DELETE'])
-def deleteCountryAPI(country_id):
-    return country.deleteCountryView(country_id)
+def deletecountryapi(country_id):
+    return country.deletecountryview(country_id)
 
 #Update - PUT API
 @app.route('/countries/<int:country_id>', methods=['PUT'])
-def updateCountryAPI(country_id):
+def updatecountryapi(country_id):
     data = request.json
-    return country.updateCountryView(country_id, data)
+    return country.updatecountryview(country_id, data)
 
 #Create - POST API
 @app.route('/countries', methods=['POST'])
-def createCountryAPI():
+def createcountryapi():
     data = request.json
-    return country.createCountryView(data)
+    return country.createcountryview(data)
 
 #Read API
 @app.route('/countries')
-def getAllCountriesAPI():
-    return country.getAllCountriesView()
+def getallcountriesapi():
+    return country.getallcountriesview()
 
 
+
+    # City APIs
+
+#Delete - DELETE API
+
+
+#Update - PUT API
+
+
+#Create - POST API
+
+
+#Read API
+# @app.route('/cities')
 
 
 
