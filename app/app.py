@@ -3,6 +3,7 @@
 
 from flask import Flask, request, jsonify
 import country
+import city
 # from flask_wtf.csrf import CSRFProtect  #pip install flask_wtf
 
 #Using Flash framework
@@ -49,7 +50,9 @@ def getallcountriesapi():
 
 
 #Read API
-# @app.route('/cities')
+@app.route('/cities')
+def getallcities():
+    return
 
 
 
