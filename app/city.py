@@ -4,7 +4,12 @@ from flask import Flask, request, jsonify
 import services
 import country
 
-#function to create a new City
+#Function to update a City by id
+def updatecityview(cityid, data):
+    services.updatecityservice(cityid, data)
+    return jsonify({'message':f'Record [{cityid}] updated successfully'})
+
+#Function to create a new City
 def createcityview(data):
     services.createcityservice(data)
     return jsonify({'message':'Data inserted successfully'})

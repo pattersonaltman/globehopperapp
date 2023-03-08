@@ -44,7 +44,10 @@ def getallcountriesapi():
 
 
 #Update - PUT API
-
+@app.route('/cities/<int:cityid>', methods=['PUT'])
+def updatecityapi(cityid):
+    data = request.json
+    return city.updatecityview(cityid, data)
 
 #Create - POST API
 @app.route('/cities', methods=['POST'])

@@ -5,6 +5,29 @@ import conn
 
     #City Services
 
+#Update a City record by id
+def updatecityservice(cityid, data):
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Parse the Data
+    name = data['Name']
+    countryid = data['CountryId']
+    capital = data['Capital']
+    firstlandmark = data['FirstLandMark']
+    secondlandmark = data['SecondLandMark']
+    thirdlandmark = data['ThirdLandMark']
+
+    #Execute the SQL
+    mysql = f"update City set Name = %s, CountryId = %s, Capital = %s, FirstLandMark = %s, SecondLandMark = %s, ThirdLandMark = %s where CityId = {cityid}"
+    values = (name, countryid, capital, firstlandmark, secondlandmark, thirdlandmark)
+    mycursor.execute(mysql, values)
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
+
 #Create a City record
 def createcityservice(data):
     #Open connection
