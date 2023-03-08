@@ -4,23 +4,23 @@ from flask import Flask, request, jsonify
 import services
 
 #Function to delete a country by id
-def deleteCountry(country_id):
-    services.deleteCountry(country_id)
+def deleteCountryView(country_id):
+    services.deleteCountryService(country_id)
     return jsonify({'message': f'Record [{country_id}] deleted successfully'})
 
 #Function to update a country by id
-def updateCountry(country_id, data):
-    services.updateCountry(country_id, data)
+def updateCountryView(country_id, data):
+    services.updateCountryService(country_id, data)
     return jsonify({'message': f'Record [{country_id}] updated successfully'})
 
 #Function to create new Country
-def createCountry(data):
-    services.createCountry(data)
+def createCountryView(data):
+    services.createCountryService(data)
     return jsonify({'message': 'Data inserted successfully'})
 
 #Function to get all countries and return as a JSON object
-def getCountries():
-    results = services.allCountries()
+def getAllCountriesView():
+    results = services.getAllCountriesService()
 
     data = []
     for row in results:

@@ -12,25 +12,25 @@ app = Flask(__name__)
 
 #Delete - DELETE API
 @app.route('/countries/<int:country_id>', methods=['DELETE'])
-def deleteCountry(country_id):
-    return country.deleteCountry(country_id)
+def deleteCountryAPI(country_id):
+    return country.deleteCountryView(country_id)
 
 #Update - PUT API
 @app.route('/countries/<int:country_id>', methods=['PUT'])
-def updateCountry(country_id):
+def updateCountryAPI(country_id):
     data = request.json
-    return country.updateCountry(country_id, data)
+    return country.updateCountryView(country_id, data)
 
 #Create - POST API
 @app.route('/countries', methods=['POST'])
-def createCountry():
+def createCountryAPI():
     data = request.json
-    return country.createCountry(data)
+    return country.createCountryView(data)
 
 #Read API
 @app.route('/countries')
-def getAllCountries():
-    return country.getCountries()
+def getAllCountriesAPI():
+    return country.getAllCountriesView()
 
 
 
