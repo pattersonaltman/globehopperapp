@@ -14,7 +14,7 @@ app = Flask(__name__)
 
     # Country APIs
 
-#(GET) - Search for all Countries in a given continent
+#Read (GET) - Search for all Countries in a given continent
 @app.route('/countries/continents/<string:continent>', methods=['GET'])
 def getallcountriesbycontinentapi(continent):
     return country.getallcountriesbycontinentview(continent)
@@ -44,6 +44,11 @@ def getallcountriesapi():
 
 
     # City APIs
+
+#Read (GET) - Get the details about a capital city by country name
+@app.route('/countries/<string:countryname>/capital', methods=['GET'])
+def getcapitalcitybycountryapi(countryname):
+    return city.getcapitalcitybycountryview(countryname)
 
 #Delete - DELETE API
 @app.route('/cities/<int:cityid>', methods=['DELETE'])

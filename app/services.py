@@ -5,6 +5,23 @@ import conn
 
     #City Services
 
+#Get a capital city record by country name
+def getcapitalcitybycountryservice(countryname):
+    #Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    #Execute the SQL
+    mysql = f"select * from city join country on country.CountryId = city.CountryId where country.Name = '{countryname}' and city.Capital = 1"
+    mycursor.execute(mysql)
+    results = mycursor.fetchall()
+
+    #Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+    return results
+
 #Delete a City record by id
 def deletecityservice(cityid):
     #Open connection
