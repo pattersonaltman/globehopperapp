@@ -5,15 +5,36 @@ import services
 
 #Function to get all Countries by continent
 def getallcountriesbycontinentview(continent):
-    results = services.getallcountriesbycontinentservice(continent)
+    resultsandcities = services.getallcountriesbycontinentservice(continent)
+    results = resultsandcities[0]
+    cities = resultsandcities[1]
+
+    citydata = []
+    for row in cities:
+        citydata.append({
+            "CityId":row[0],
+            "Name":row[1],
+            "CountryId":row[2],
+            "Capital":row[3],
+            "FirstLandMark":row[4],
+            "SecondLandMark":row[5],
+            "ThirdLandMark":row[6]
+        })
 
     data = []
     for row in results:
+
+        cityappendlist = []
+        for city in citydata:
+            if row[0] == city['CountryId']:
+                cityappendlist.append(city)
+
         data.append({
             "CountryId":row[0],
             "Name":row[1],
             "Population":row[2],
-            "Continent":row[3] 
+            "Continent":row[3],
+            "Cities":cityappendlist
         })
 
     return jsonify(data)
@@ -35,15 +56,36 @@ def createcountryview(data):
 
 #Function to get all countries and return as a JSON object
 def getallcountriesview():
-    results = services.getallcountriesservice()
+    resultsandcities = services.getallcountriesservice()
+    results = resultsandcities[0]
+    cities = resultsandcities[1]
+
+    citydata = []
+    for row in cities:
+        citydata.append({
+            "CityId":row[0],
+            "Name":row[1],
+            "CountryId":row[2],
+            "Capital":row[3],
+            "FirstLandMark":row[4],
+            "SecondLandMark":row[5],
+            "ThirdLandMark":row[6]
+        })
 
     data = []
     for row in results:
+
+        cityappendlist = []
+        for city in citydata:
+            if row[0] == city['CountryId']:
+                cityappendlist.append(city)
+
         data.append({
             "CountryId":row[0],
             "Name":row[1],
             "Population":row[2],
-            "Continent":row[3]
+            "Continent":row[3],
+            "Cities":cityappendlist
         })
 
     return jsonify(data)
