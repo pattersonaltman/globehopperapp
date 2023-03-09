@@ -14,6 +14,11 @@ app = Flask(__name__)
 
     # Country APIs
 
+#(GET) - Search for all Countries in a given continent
+@app.route('/countries/continents/<string:continent>', methods=['GET'])
+def getallcountriesbycontinentapi(continent):
+    return country.getallcountriesbycontinentview(continent)
+
 #Delete - DELETE API
 @app.route('/countries/<int:country_id>', methods=['DELETE'])
 def deletecountryapi(country_id):

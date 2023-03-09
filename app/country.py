@@ -3,6 +3,21 @@
 from flask import Flask, request, jsonify
 import services
 
+#Function to get all Countries by continent
+def getallcountriesbycontinentview(continent):
+    results = services.getallcountriesbycontinentservice(continent)
+
+    data = []
+    for row in results:
+        data.append({
+            "CountryId":row[0],
+            "Name":row[1],
+            "Population":row[2],
+            "Continent":row[3] 
+        })
+
+    return jsonify(data)
+
 #Function to delete a country by id
 def deletecountryview(country_id):
     services.deletecountryservice(country_id)
