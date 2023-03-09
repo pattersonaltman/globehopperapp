@@ -182,12 +182,15 @@ def getallcountriesservice():
     mycursor = conn.myconn.cursor()
 
     #Execute the SQL
-    mycursor.execute("select * from Country join City on country.CountryId = city.CountryId")
+    mycursor.execute("select * from Country")
     results = mycursor.fetchall()
+
+    mycursor.execute("select * from City")
+    cities = mycursor.fetchall()
 
     #Close connection
     mycursor.close()
     conn.myconn.close()
 
-    return results
+    return [results, cities]
 
