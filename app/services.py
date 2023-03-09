@@ -114,14 +114,11 @@ def getallcountriesbycontinentservice(continent):
     mycursor.execute(f"select * from Country where Continent = '{continent}'")
     results = mycursor.fetchall()
 
-    mycursor.execute("select * from City")
-    cities = mycursor.fetchall()
-
     #Close connection
     mycursor.close()
     conn.myconn.close()
 
-    return [results, cities]
+    return results
 
 
 #Delete a Country record
@@ -188,12 +185,9 @@ def getallcountriesservice():
     mycursor.execute("select * from Country")
     results = mycursor.fetchall()
 
-    mycursor.execute("select * from City")
-    cities = mycursor.fetchall()
-
     #Close connection
     mycursor.close()
     conn.myconn.close()
 
-    return [results, cities]
+    return results
 
