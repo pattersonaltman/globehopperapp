@@ -63,6 +63,7 @@ def getallcountriesview():
             "CountryId":row[0],
             "Name":row[1],
             "Population":row[2],
+            "Continent":row[3],
             "Cities":cityappendlist
         })
 
