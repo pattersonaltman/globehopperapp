@@ -185,9 +185,12 @@ def getallcountriesservice():
     mycursor.execute("select * from Country")
     results = mycursor.fetchall()
 
+    mycursor.execute("select * from City")
+    cities = mycursor.fetchall()
+
     #Close connection
     mycursor.close()
     conn.myconn.close()
 
-    return results
+    return [results, cities]
 
