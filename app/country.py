@@ -37,13 +37,31 @@ def createcountryview(data):
 def getallcountriesview():
     results = services.getallcountriesservice()
 
+    cities = []
+    for row in results:
+        cities.append({
+            "CityId":row[4],
+            "Name":row[5],
+            "CountryId":row[6],
+            "Capital":row[7],
+            "FirstLandMark":row[8],
+            "SecondLandMark":row[9],
+            "ThirdLandMark":row[10]
+        })
+
     data = []
     for row in results:
+
+        cityappendlist = []
+        for city in cities:
+            if row[0] == city['CountryId']:
+                cityappendlist.append(city)
+
         data.append({
             "CountryId":row[0],
             "Name":row[1],
             "Population":row[2],
-            "Continent":row[3]
+            "Cities":cityappendlist
         })
 
     return jsonify(data)
